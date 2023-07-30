@@ -1,0 +1,359 @@
+/* .App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+} */
+
+/* App.css */
+
+/* .app {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  text-align: center;
+}
+
+.form-group {
+  margin-bottom: 10px;
+}
+
+button {
+  padding: 8px 16px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.output {
+  margin-top: 20px;
+} */
+
+
+/* App.css */
+
+body, h1, h2, h3, h4, h5, h6, p, ul, li, table {
+  margin: 0;
+  padding: 0;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+/* Optionally, you can apply the same reset to all elements */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/* Rest of your existing CSS styles go here */
+body {
+  background-color: rgb(184, 195, 199);
+  border: 6px solid #1f09a0; /* Set the border style, size, and color with increased thickness */
+  border-radius: 20px; /* Add border radius for rounded corners */
+  padding: 2px;
+}
+
+/* input[type="number"] {
+  background-color: rgb(207, 199, 199);
+} */
+
+.app {
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 20px;
+  text-align: center;
+  font-size: 15px;
+  margin-left: 1%;
+  margin-top: 0.2%;
+}
+
+.name {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  margin-top: 0.5%;
+  margin-left: 1%;
+  display: grid;
+  grid-template-rows: 10px 10px;
+  grid-template-columns: 3fr 3fr 3fr;
+}
+
+.status {
+  display: flex;
+ flex-direction: row;
+ justify-content: left;
+ margin-top: 1%;
+}
+
+.dates {
+  display: flex;
+ flex-direction: row;
+ justify-content: flex-start;
+ width: 200px;
+ margin-top: 1%;
+ margin-left: 1%;
+}
+
+
+
+.date-item{
+  margin: 2%;
+}
+
+.form-group-1 {
+  display: grid;
+  grid-template-rows: 30px 40px;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  gap: 2px; /* Adjust the gap value to set the desired spacing between the boxes */
+  margin-top: 0.5%;
+  margin-left: 1%;
+}
+
+.form-group-2 {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
+
+.form-group {
+  display: grid;
+  grid-template-rows: 10px 10px;
+  grid-template-columns: 1fr 1fr; /* Use the appropriate column widths */
+  gap: 1px; /* Set the gap (spacing) between the grid items (fields) to 0 to remove the gap */
+  margin-top: 0.5%;
+  margin-left: 1%;
+}
+
+.HTML_Part {
+  display: grid;
+  grid-template-rows: 10px 10px;
+  grid-template-columns: 70fr 30fr; /* Increase the length of the output box */
+  gap: 2px; /* Set the gap (spacing) between the grid items (fields) */
+  margin-top: 0.5%;
+  margin-left: 1%;
+}
+
+
+.HTML_Part_2 {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  margin-top: 1%;
+  margin-left: 1%;
+}
+
+
+.HTML_Part label[for="lessRebate87A"] {
+  font-size: 16px; /* Set the desired font size */
+  white-space: nowrap; /* Display the text in one line */
+}
+
+.HTML_Part label[for="surcharge"] {
+  font-size: 16px; /* Set the desired font size */
+}
+
+.HTML_Part label[for="educationCess"] {
+  font-size: 16px; /* Set the desired font size */
+  white-space: nowrap; /* Display the text in one line */
+}
+
+.HTML_Part label[for="taxPayable"] {
+  font-size: 16px; /* Set the desired font size */
+  white-space: nowrap; /* Display the text in one line */
+}
+
+.HTML_Part label[for="tds"] {
+  font-size: 16px; /* Set the desired font size */
+  white-space: nowrap; /* Display the text in one line */
+}
+
+/* Increase the size of the input fields */
+/* Maintain the same size for all input fields */
+input[type="number"] {
+  width: 120px; /* Set the desired width of the input fields */
+  display: inline-block; /* Set input elements to be displayed in line */
+  margin-right: 5px; /* Add some spacing between input fields */
+}
+/* Increase the size of the "less Rebate 87A" field */
+#lessRebate87A {
+  width: 150px; /* Set the desired width of the input field */
+}
+
+#educationCess {
+  width: 150px; /* Set the desired width for the "education Cess" input field */
+}
+
+#tds {
+  width: 150px; /* Set the desired width for the "TDS" input field */
+}
+
+/* Increase the size of the "surcharge" field */
+#surcharge {
+  width: 150px; /* Set the desired width of the input field */
+}
+
+/* Increase the size of the "tax Payable" field */
+#taxPayable {
+  width: 180px; /* Set the desired width of the input field */
+}
+
+
+/* Add this CSS to style the input fields */
+.HTML_Part_2 input[type="number"] {
+  width: 100%; /* Make the input fields take up the full available width in the grid cell */
+  padding: 5px; /* Add some padding to the input fields for spacing */
+  font-size: 14px; /* Adjust the font size as needed */
+}
+
+/* Optionally, you can adjust the font size for the labels */
+.HTML_Part_2 label {
+  font-size: 14px; /* Adjust the font size for the labels */
+}
+
+.HTML_Part label[for="taxPayable"] {
+  font-size: 16px; /* Set the desired font size */
+  white-space: nowrap; /* Display the text in one line */
+  margin-right: 10px; /* Add space between the label and the box (adjust the value as needed) */
+}
+
+
+label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+input[type="number"] .table-class{
+  padding: 0px;
+  font-size: 15px;
+  width: 30%;
+}
+
+input[type="text"],
+input[type="number"] {
+  padding: 8px;
+  font-size: 15px;
+  width: 60%;
+ }
+
+button {
+  padding: 8px 16px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-size: 15px;
+}
+
+.output {
+  margin-top: 20px;
+  font-size: 15px;
+}
+
+table {
+  border-collapse: collapse;
+  font-size: 12px;
+  border-spacing: 0;
+}
+
+th, td {
+  padding: 0;
+  margin: 0;
+  border: none;
+  width: 120px;
+  height: 3px; /* Decrease the height of the cells */
+}
+
+input[type=number]::-webkit-inner-spin-button { 
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin: 0; 
+}
+
+.submit-button {
+  /* Your regular button styles here */
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #3872a1;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.submit-button:hover {
+  background-color: #13308f;
+}
+
+.submit-button:active {
+  background-color: #5f6fb6;
+  box-shadow: 0 5px #666;
+}
+
+
+
+
+/* Optional: To remove the borders on the first column of the table */
+/* th:first-child, td:first-child {
+  border-left: none;
+} */
+
+/* Optional: To remove the borders on the last column of the table */
+/* th:last-child, td:last-child {
+  border-right: none;
+} */
+
+/* App.css */
+/* .square-box {
+  width: 300px;
+  height: 300px;
+  background-color: gray;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-weight: bold;
+  font-size: 24px;
+  position: fixed;
+  top: 50px;
+  right: 50px;
+} */
+
+/* Add any other styles you need for the rest of the components */
