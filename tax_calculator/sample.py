@@ -37,34 +37,8 @@ class CalculateTaxView(APIView):
         access_token = self.generate_authentication_token()
         if not access_token:
             return Response("Failed to generate authentication token.", status=500)
-        
-        # print(request.data)
-   
-        pass1 = "submit1"
-        pass2 = "submit2"
-        if pass1 in request.data['whichSubmit']:
-            print(pass1)
-            # Use the first API URL
-            url = "https://api.sandbox.co.in/calculators/income-tax/old"
-            print("url:",url)
-        elif pass2 in request.data['whichSubmit']:
-            # Use the second API URL
-            url = "https://taxapi.sinewave.co.in/API/TaxCalculator/CalculateTax"
-            print("url_2:",url)
-            year = request.data["strAY"].split()[1]
 
-            # Creating a new payload without 'FY' in 'strAY'
-            new_payload = request.data.copy()
-
-            # Convert year format from '2022-23' to '2022-2023'
-            parts = year.split('-')
-            if len(parts[1]) == 2:
-                new_year = parts[0] + '-20' + parts[1]
-                new_payload["strAY"] = new_year
-                request.data['strAY'] = new_year
-                print(new_year)
-        else:
-            return Response("Invalid submit button value.", status=400)
+        url = "https://api.sandbox.co.in/calculators/income-tax/old"
 
         # Define the headers with the access token, API key, and version
         headers = {
@@ -74,21 +48,18 @@ class CalculateTaxView(APIView):
         }
 
         payload = request.data
+        print("request:",request)
         print("payload:",payload)
-        # print("access_token:",access_token)
         # print("data:",data)
         
 
         # Make a POST request to the API with headers and JSON payload
         response = requests.post(url, headers=headers, json=payload)
-        print("response:",response)
 
         # Check if the request was successful (status code 200)
-        if response.status_code == 200 and pass1 in request.data['whichSubmit']:
+        if response.status_code == 200:
             # Retrieve the response data
             data = response.json()
-
-            print("Output_data",data)
 
             # Extract specific values from the response
             gross_taxable_income = data["data"]["gross_taxable_income"]
@@ -106,15 +77,10 @@ class CalculateTaxView(APIView):
             total_tax_payable = data["data"]["total_tax_payable"]
             effective_tax_rate = data["data"]["effective_tax_rate"]
             refund = data["data"]["refund"]
-            balancePayable = 0
-            lessRebate87A = 0
-            taxWithoutSurcharge = 0
-            totalIncome = 0
 
-            print("gross_total_income:",gross_total_income)
-            print("health_and_education_cess:",health_and_education_cess)
-
-            response_data = {
+            # Return the calculated values as a response
+            # Render the template with the calculated values
+            return Response({
                 'gross_taxable_income': gross_taxable_income,
                 'tax_on_total_income': tax_on_total_income,
                 'surcharge': surcharge,
@@ -130,51 +96,13 @@ class CalculateTaxView(APIView):
                 'total_tax_payable': total_tax_payable,
                 'effective_tax_rate': effective_tax_rate,
                 'refund': refund,
-                'balancePayable': balancePayable,
-                'lessRebate87A': lessRebate87A,
-                'taxWithoutSurcharge': taxWithoutSurcharge,
-                'totalIncome' : totalIncome,
-        }
+
+            })
+
         else:
-            response.status_code == 200 and pass2 in request.data['whichSubmit']
-            data = response.json()
-            print("Output_data",data)
-
-
-            lessRebate87A = data["Lessrebate87A"]
-            surcharge = data["Surcharge"]
-            health_and_education_cess = data["EducationCess"]
-            tax_on_total_income = data["TotalTax"]
-            totalIncome = data["TotalIncome"]
-            gross_total_income = data["GrossTotalIncome"]
-            total_deductions_under_chapter_vi_a = data["T80cout"]
-            taxWithoutSurcharge = data["TaxwoSurcharge"]
-            balancePayable = data["BalancePayable"]
-            total_tax_payable = data["TaxPayable"]
-            
-
-            
-
-            response_data = {
-                'tax_on_total_income': tax_on_total_income,
-                'surcharge': surcharge,
-                'health_and_education_cess': health_and_education_cess,
-                'gross_total_income': gross_total_income,
-                'total_deductions_under_chapter_vi_a': total_deductions_under_chapter_vi_a,
-                'lessRebate87A': lessRebate87A,
-                'totalIncome' : totalIncome,
-                'taxWithoutSurcharge' : taxWithoutSurcharge,
-                'balancePayable': balancePayable,
-                'total_tax_payable' : total_tax_payable
-
-             
-        }
-            print("response_data:",response_data)
-
-        if response.status_code == 200:
-            return Response(response_data)
-        else:
-            return Response(response_data, status=response.status_code)
+                return Response("Request failed with status code: " + str(response.status_code), status=response.status_code)
 
     def new_method(self, data):
         return data
+
+
